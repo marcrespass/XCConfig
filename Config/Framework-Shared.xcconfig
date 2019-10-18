@@ -33,6 +33,6 @@ FRAMEWORK_COPYRIGHT_YEAR = 2018-2019
 // Set this value for NSHumanReadableCopyright
 //     <key>NSHumanReadableCopyright</key>
 //     <string>$(COPYRIGHT_STRING)</string>
-FRAMEWORK_COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
+FRAMEWORK_COPYRIGHT_STRING = Copyright © $(FRAMEWORK_COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
 
 MTL_FAST_MATH = YES

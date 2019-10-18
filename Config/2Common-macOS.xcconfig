@@ -1,10 +1,9 @@
 
 #include "1XcodeWarnings.xcconfig"
 
-//https://nshipster.com/xcconfig/
 //TIP: run a build of your project with `-DAPI_TO_BE_DEPRECATED=10_14` in your CFLAGS. (Substitute 10_14 with your deploy target as needed.)
 //This gives you a preview of APIs that are soft deprecated and may be hard deprecated in the future, and many of them come with fix-its now.
-OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_13
+OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_14
 
 SDKROOT = macosx
 
@@ -23,13 +22,14 @@ CLANG_ENABLE_OBJC_ARC = YES
 COMBINE_HIDPI_IMAGES = YES
 
 SWIFT_VERSION = 5.0
-FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
+//FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
 
 // Code Signing Identity
 CODE_SIGN_IDENTITY = Mac Developer
 CODE_SIGN_STYLE = Automatic
 DEVELOPMENT_TEAM = 2WW9KC8P4G
 PROVISIONING_PROFILE_SPECIFIER =
+CODE_SIGN_INJECT_BASE_ENTITLEMENTS =
 
 // C++ Language Dialect
 // Choose a standard or non-standard C++ language dialect.
