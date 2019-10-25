@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>us.me.state.courts</groupId>
+    <artifactId>CaseCreator2</artifactId>
+    <packaging>pom</packaging>
+    <version>2.0-10-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+
+    <scm>
+        <developerConnection>scm:git:ssh://git@bitbucket.org/ilios_mjb/casecreator2.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>mjb.releases</id>
+            <url>https://nexus.courts.maine.gov/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>mjb.snapshots</id>
+            <url>https://nexus.courts.maine.gov/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <mejiskit.version>1.6-4</mejiskit.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>us.me.state.courts</groupId>
+            <artifactId>MEJISKit</artifactId>
+            <version>${mejiskit.version}</version>
+            <classifier>default</classifier>
+            <type>zip</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>initialize</phase>  <!-- bind to the initialize phase -->
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>Frameworks</outputDirectory>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <executions>
+                    <execution>
+                        <id>CFBundleVersion</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>defaults</executable>
+                            <arguments>
+                                <argument>write</argument>
+                                <argument>${project.basedir}/build/Release/${project.artifactId}.app/Contents/Info.plist</argument>
+                                <argument>CFBundleVersion</argument>
+                                <argument>${project.version}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>CFBundleShortVersionString</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>defaults</executable>
+                            <arguments>
+                                <argument>write</argument>
+                                <argument>${project.basedir}/build/Release/${project.artifactId}.app/Contents/Info.plist</argument>
+                                <argument>CFBundleShortVersionString</argument>
+                                <argument>${project.version}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>MERCodeSign</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>codesign</executable>
+                            <arguments>
+                                <argument>--force</argument>
+                                <argument>--deep</argument>
+                                <argument>--sign</argument>
+                                <argument>Developer ID Application</argument>
+                                <argument>${project.basedir}/build/Release/${project.artifactId}.app</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>xcodebuild</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>xcodebuild</executable>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.4</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>maven-assembly-descriptor.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
