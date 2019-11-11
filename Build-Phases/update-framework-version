@@ -1,11 +1,6 @@
 #!/bin/sh
 
-if [ ${CONFIGURATION} == "Debug" ]; then
+BUILD_NUMBER=`git rev-list HEAD --count`
+INFO_PLIST="./Info.plist"
 
-    BUILD_NUMBER=`git rev-list HEAD --count`
-    INFO_PLIST="${SRCROOT}/${INFOPLIST_FILE}"
-
-    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$INFO_PLIST"
-#    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString ${FrameworkBundleVersion}" "$INFO_PLIST"
-
-fi
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$INFO_PLIST"

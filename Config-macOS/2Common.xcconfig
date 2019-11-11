@@ -1,37 +1,38 @@
 
 #include "1XcodeWarnings.xcconfig"
 
+//https://nshipster.com/xcconfig/
 //TIP: run a build of your project with `-DAPI_TO_BE_DEPRECATED=10_14` in your CFLAGS. (Substitute 10_14 with your deploy target as needed.)
 //This gives you a preview of APIs that are soft deprecated and may be hard deprecated in the future, and many of them come with fix-its now.
-OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=12_0
+OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_13
 
-TARGETED_DEVICE_FAMILY = 1,2
+SDKROOT = macosx
 
-SDKROOT = iphoneos
+SWIFT_COMPILATION_MODE = wholemodule
 
-IPHONEOS_DEPLOYMENT_TARGET = 12.1
+MACOSX_DEPLOYMENT_TARGET = 10.13
 
 PRODUCT_NAME = $(TARGET_NAME)
 
-PRODUCT_BUNDLE_PREFIX = com.iliosinc
-
-//LD_RUNPATH_SEARCH_PATHS = @executable_path/Frameworks
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+PRODUCT_BUNDLE_PREFIX = us.me.state.courts
 
 INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
 
 CLANG_ENABLE_MODULES = YES
+
 CLANG_ENABLE_OBJC_ARC = YES
 
 COMBINE_HIDPI_IMAGES = YES
 
 SWIFT_VERSION = 5.0
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
 
 // Code Signing Identity
-CODE_SIGN_IDENTITY = iPhone Developer
+CODE_SIGN_IDENTITY = Mac Developer
 CODE_SIGN_STYLE = Automatic
 DEVELOPMENT_TEAM = 2WW9KC8P4G
 PROVISIONING_PROFILE_SPECIFIER =
+CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES
 
 // C++ Language Dialect
 // Choose a standard or non-standard C++ language dialect.

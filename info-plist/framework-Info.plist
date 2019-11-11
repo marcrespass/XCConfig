@@ -17,7 +17,7 @@
         <key>CFBundlePackageType</key>
         <string>FMWK</string>
         <key>CFBundleShortVersionString</key>
-        <string>$(FrameworkBundleVersion)</string>
+        <string>$(FRAMEWORK_BUNDLE_VERSION)</string>
         <key>CFBundleVersion</key>
         <string>13</string>
         <key>LSMinimumSystemVersion</key>

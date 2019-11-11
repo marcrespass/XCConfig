@@ -23,7 +23,7 @@
     </distributionManagement>
 
     <properties>
-        <mejiskit.version>1.6-4</mejiskit.version>
+        <mejiskit.version>1.6-5</mejiskit.version>
     </properties>
 
     <dependencies>
