@@ -19,7 +19,7 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
 PRODUCT_BUNDLE_IDENTIFIER = $(PRODUCT_BUNDLE_PREFIX).$(PRODUCT_NAME)
 
 // Update this for the current year
-COPYRIGHT_YEAR = 2008-2019
+COPYRIGHT_YEAR = 2008-2020
 
 // Set this value for NSHumanReadableCopyright
 //     <key>NSHumanReadableCopyright</key>
