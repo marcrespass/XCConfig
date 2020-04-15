@@ -3,7 +3,7 @@
     <groupId>us.me.state.courts</groupId>
     <artifactId>CaseCreator2</artifactId>
     <packaging>pom</packaging>
-    <version>2.0-10-SNAPSHOT</version>
+    <version>1.0-1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <scm>
@@ -23,11 +23,10 @@
     </distributionManagement>
 
     <properties>
-        <mejiskit.version>1.6-5</mejiskit.version>
+        <mejiskit.version>2.0-1</mejiskit.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>us.me.state.courts</groupId>
             <artifactId>MEJISKit</artifactId>
@@ -35,7 +34,6 @@
             <classifier>default</classifier>
             <type>zip</type>
         </dependency>
-
     </dependencies>
 
     <build>

@@ -1,3 +1,4 @@
+<!-- SAMPLE -->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -17,7 +18,7 @@
         <key>CFBundleName</key>
         <string>$(PRODUCT_NAME)</string>
         <key>CFBundlePackageType</key>
-        <string>APPL</string>
+        <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
         <key>CFBundleShortVersionString</key>
         <string>$(MARKETING_VERSION)</string>
         <key>CFBundleSignature</key>
@@ -31,7 +32,11 @@
         <key>NSMainNibFile</key>
         <string>MainMenu</string>
         <key>NSPrincipalClass</key>
-        <string>MEJISApplication</string>
+        <string>NSApplication</string>
+        <key>NSSupportsAutomaticTermination</key>
+        <true/>
+        <key>NSSupportsSuddenTermination</key>
+        <true/>
         <key>LSHasLocalizedDisplayName</key>
         <true/>
     </dict>
