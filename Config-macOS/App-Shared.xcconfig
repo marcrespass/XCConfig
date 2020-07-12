@@ -24,9 +24,10 @@ COPYRIGHT_YEAR = 2008-2020
 // Set this value for NSHumanReadableCopyright
 //     <key>NSHumanReadableCopyright</key>
 //     <string>$(COPYRIGHT_STRING)</string>
+# COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
 COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) Maine Judicial Branch (OIT). All rights reserved.
 GET_INFO_STRING = $(CFBundleVersion) $(COPYRIGHT_STRING)
 
 SWIFT_COMPILATION_MODE = wholemodule
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-SWIFT_OBJC_BRIDGING_HEADER = $(PROJECT_DIR)/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h
+# SWIFT_OBJC_BRIDGING_HEADER = $(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h
