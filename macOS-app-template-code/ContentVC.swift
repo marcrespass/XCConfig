@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class PrimaryVC: NSViewController {
+class ContentVC: NSViewController {
     weak var delegate: SomeDelegate?
 
     init(delegate: SomeDelegate) {
@@ -15,7 +15,7 @@ class PrimaryVC: NSViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    override var nibName: NSNib.Name? { NSNib.Name("PrimaryVC") }
+    override var nibName: NSNib.Name? { NSNib.Name("ContentVC") }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) { fatalError("init(coder:) not implemented. Use init(delegate:)") }
