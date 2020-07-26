@@ -14,15 +14,15 @@ protocol SomeDelegate: class {
 
 final class AppController {
 
-    lazy var primaryVC: NSViewController = {
-        let pvc = NSViewController()
+    lazy var contentVC: ContentVC = {
+        let pvc = ContentVC(delegate: self)
         return pvc
     }()
 
     var windowControllers: [NSWindowController] = []
 
     @objc func createNewWindow() {
-        let window = NSWindow(contentViewController: self.primaryVC)
+        let window = NSWindow(contentViewController: self.contentVC)
         let wc = NSWindowController(window: window)
         self.windowControllers.append(wc)
 
@@ -39,6 +39,13 @@ extension AppController {
         guard let window = notification.object as? NSWindow else { return }
         NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: window)
         self.windowControllers.removeAll { window == $0.window }
+    }
+
+}
+
+extension AppController: SomeDelegate {
+    func executeSearch() {
+        print("\(#function) not yet implemented")
     }
 
 }
