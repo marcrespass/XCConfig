@@ -6,8 +6,6 @@
 //
 #include "2Common.xcconfig"
 
-INFOPLIST_FILE = $(TARGET_NAME)/Info.plist
-
 COPY_PHASE_STRIP = NO
 
 //TEST_HOST = $(BUILT_PRODUCTS_DIR)/$(PROJECT_NAME).app/$(PROJECT_NAME)
