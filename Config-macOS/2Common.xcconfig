@@ -8,7 +8,7 @@ OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_13
 
 SDKROOT = macosx
 
-SWIFT_COMPILATION_MODE = wholemodule
+SWIFT_COMPILATION_MODE = singlefile
 
 MACOSX_DEPLOYMENT_TARGET = 10.13
 
@@ -34,5 +34,12 @@ CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES
 
 ALWAYS_SEARCH_USER_PATHS = NO
 
+MARKETING_VERSION = 2.16
+
 // Update this for the current year
-COPYRIGHT_YEAR = 2008-2020
+COPYRIGHT_YEAR = 2008-2021
+// Set this value for NSHumanReadableCopyright
+//     <key>NSHumanReadableCopyright</key>
+//     <string>$(COPYRIGHT_STRING)</string>
+COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) Maine Judicial Branch (OIT). All rights reserved.
+GET_INFO_STRING = $(MARKETING_VERSION) $(BUILD_VERSION) $(COPYRIGHT_STRING)
