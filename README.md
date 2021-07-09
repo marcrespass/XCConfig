@@ -2,11 +2,14 @@
 
 Drop Config-iOS into your iOS project. Set 2Project as the project config file. Set App-Debug as the Debug config and App-Release as the Release config. You can then delete all of the settings in your project and use the external xcconfig files which are easier to manage and easier to diff.
 
+You can also get [BuildSettingExtractor](https://github.com/dempseyatgithub/BuildSettingExtractor) to extract the settings of your current project and setup configuration files to replace the Xcode project settings.
+
 * xcconfig files for app, framework, tests
 
 * Project
 	* 1XcodeWarnings.xcconfig
 	    * imported by 2Project.xcconfig it has all of the warning flags
+	    * Special thanks to Jon Reid for [XcodeWarnings](https://github.com/jonreid/XcodeWarnings)
 	* 2Project.xcconfig
 	    * set 2Project as the Project xcconfig file
 
