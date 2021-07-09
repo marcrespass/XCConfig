@@ -4,28 +4,23 @@
 //https://nshipster.com/xcconfig/
 //TIP: run a build of your project with `-DAPI_TO_BE_DEPRECATED=10_14` in your CFLAGS. (Substitute 10_14 with your deploy target as needed.)
 //This gives you a preview of APIs that are soft deprecated and may be hard deprecated in the future, and many of them come with fix-its now.
-OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_13
+OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_14
 
 SDKROOT = macosx
 
-SWIFT_COMPILATION_MODE = singlefile
+SWIFT_COMPILATION_MODE = wholemodule
 
-MARKETING_VERSION = 1.0
-
-MACOSX_DEPLOYMENT_TARGET = 10.15
+MACOSX_DEPLOYMENT_TARGET = 11.0
 
 PRODUCT_NAME = $(TARGET_NAME)
 
-// FIXME: Set the bundle prefix
-# PRODUCT_BUNDLE_PREFIX = us.me.state.courts
-# PRODUCT_BUNDLE_PREFIX = com.iliosinc
+PRODUCT_BUNDLE_PREFIX = com.iliosinc
 
 INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
 
 COMBINE_HIDPI_IMAGES = YES
 
 SWIFT_VERSION = 5.0
-// FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
 
 // Code Signing Identity
 CODE_SIGN_IDENTITY = Mac Developer
@@ -36,10 +31,12 @@ CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES
 
 ALWAYS_SEARCH_USER_PATHS = NO
 
+MARKETING_VERSION = 1.0
+
 // Update this for the current year
-COPYRIGHT_YEAR = 2008-2021
+COPYRIGHT_YEAR = 2021
 // Set this value for NSHumanReadableCopyright
 //     <key>NSHumanReadableCopyright</key>
 //     <string>$(COPYRIGHT_STRING)</string>
-COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) Maine Judicial Branch (OIT). All rights reserved.
-GET_INFO_STRING = $(MARKETING_VERSION) $(CFBundleVersion) $(COPYRIGHT_STRING)
+COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
+GET_INFO_STRING = $(MARKETING_VERSION) $(COPYRIGHT_STRING)
