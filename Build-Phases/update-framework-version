@@ -1,6 +1,0 @@
-#!/bin/sh
-
-BUILD_NUMBER=`git rev-list HEAD --count`
-INFO_PLIST="./Info.plist"
-
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$INFO_PLIST"

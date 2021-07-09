@@ -1,5 +1,7 @@
 # Configuration for macOS and iOS
 
+Drop Config-iOS into your iOS project. Set 2Project as the project config file. Set App-Debug as the Debug config and App-Release as the Release config. You can then delete all of the settings in your project and use the external xcconfig files which are easier to manage and easier to diff.
+
 * xcconfig files for app, framework, tests
 
 * Project
@@ -24,19 +26,12 @@
 	* Tests-Release.xcconfig
 	* Tests-Shared.xcconfig
 
-## info-plist
-
-* Info.plist replacements for different targets
-
 ## Build-Phases
 
 * Scripts to set a Run Script build phases
     * build-script
+        * runs on release builds, sets CFBundleVersion according to git
     * swiftlint-command
+        * run SwiftLint
     * todo-fixme
-    * fix-images
-    * update-framework-version
-
-## POM
-
-* app-pom.xml
+        * adds TODO and FIXME to obj-c projects
